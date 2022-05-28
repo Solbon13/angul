@@ -10,6 +10,7 @@ import ru from '@angular/common/locales/ru';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WebsiteModule } from './routing/website/website.module';
 
 registerLocaleData(ru);
 
@@ -20,6 +21,7 @@ registerLocaleData(ru);
   imports: [
     BrowserModule,
     AppRoutingModule,
+    WebsiteModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule
