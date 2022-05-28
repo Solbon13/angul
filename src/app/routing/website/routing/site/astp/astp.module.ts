@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AstpPageComponent } from './pages/astp-page/astp-page.component';
 import { RouterModule } from '@angular/router';
 
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
         path: '',
         component: AstpPageComponent
       }
-    ])
+    ]),
+    NzFormModule
   ]
 })
 export class AstpModule { }

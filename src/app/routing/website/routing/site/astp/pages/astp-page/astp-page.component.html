@@ -1,1 +1,8 @@
-<p>astp-page works!</p>
+<form nz-form formGroup="validateForm" class="astp-form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Please input your username!">
+        <textarea rows="4" nz-input formControlName="numbers" class="astp-form-element astp-form-margin"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+    <button nz-button class="astp-form-element astp-form-margin" nzType="'primary'">Формировать фильтр</button>
+  </form>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 @NgModule({
   declarations: [],
@@ -31,7 +31,8 @@ import { RouterModule } from '@angular/router';
           .then(module => module.NotFoundModule)
       },
       { path: '**', redirectTo: 'not-found' },
-    ]) 
+    ]),
+    NzFormModule
   ]
 })
 export class WebsiteModule { }
