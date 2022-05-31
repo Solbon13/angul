@@ -1,8 +1,23 @@
-<form nz-form formGroup="validateForm" class="astp-form" (ngSubmit)="submitForm()">
-    <nz-form-item>
-      <nz-form-control nzErrorTip="Please input your username!">
-        <textarea rows="4" nz-input formControlName="numbers" class="astp-form-element astp-form-margin"></textarea>
-      </nz-form-control>
-    </nz-form-item>
-    <button nz-button class="astp-form-element astp-form-margin" nzType="'primary'">Формировать фильтр</button>
-  </form>
+<form nz-form [formGroup]="validateForm" class="astp-form" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your username!">
+      <textarea rows="4" nz-input formControlName="numbers" class="astp-form-element astp-form-margin"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button nzType="primary"
+      class="astp-form-element astp-form-margin"
+      [disabled]="!validateForm.valid"
+      >Формировать фильтр</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<p
+  class="astp-form-element astp-form-margin astp-form"
+  *ngIf="filterASTP"
+      nz-typography
+      nzEllipsis
+      nzCopyable
+      [nzContent]= "filterASTP"
+    ></p>

@@ -9,10 +9,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AstpPageComponent implements OnInit {
 
   validateForm!: FormGroup;
+  filterASTP = ''
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
+      let arrASTP = this.validateForm.value['numbers'].split('\n')
+      this.filterASTP = 'wonum in (' + arrASTP.toString() + ')'
+
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -23,7 +26,7 @@ export class AstpPageComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
