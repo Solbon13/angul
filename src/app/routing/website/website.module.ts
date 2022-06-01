@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    StoreModule.forFeature(DEFAULT_ROUTER_FEATURENAME, routerReducer),
     RouterModule.forChild([
       {
         path: '',
