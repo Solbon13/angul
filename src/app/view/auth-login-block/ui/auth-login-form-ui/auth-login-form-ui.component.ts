@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AuthLoginFormUiComponent implements OnInit {
 
   @Input() formError = ''
+  @Input() disabled = false
   @Output() login = new EventEmitter()
 
   validateForm!: FormGroup;
@@ -35,7 +36,7 @@ export class AuthLoginFormUiComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
+      login: [null, [Validators.required]],
       password: [null, [Validators.required]],
       remember: [true]
     });

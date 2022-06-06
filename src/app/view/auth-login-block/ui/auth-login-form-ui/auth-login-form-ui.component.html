@@ -2,7 +2,7 @@
     <nz-form-item>
       <nz-form-control nzErrorTip="Пожалуйста, введите ваше имя пользователя!">
         <nz-input-group nzPrefixIcon="user">
-          <input type="text" nz-input formControlName="userName" placeholder="Имя пользователя" />
+          <input type="text" nz-input formControlName="login" placeholder="Имя пользователя" />
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
@@ -27,7 +27,7 @@
     nz-button
     class="login-form-button login-form-margin"
     [nzType]="'primary'"
-    [disabled]="validateForm.invalid || !!formError"
+    [disabled]="disabled || validateForm.invalid || !!formError"
     >Войти</button>
     или
     <a>Зарегистрироваться!</a>

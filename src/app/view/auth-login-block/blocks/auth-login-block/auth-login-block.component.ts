@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { login } from 'src/app/store/auth-store/store/auth.actions';
+import * as auth from 'src/app/store/auth-store/store/auth.selectors';
 
 @Component({
   selector: 'app-auth-login-block',
@@ -7,16 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthLoginBlockComponent implements OnInit {
 
-  serverError = ''
+  loading$: Observable<boolean> = this.store$.pipe(select(auth.getLoading))
+  loaded$: Observable<boolean> = this.store$.pipe(select(auth.getLoaded))
+  serverError$: Observable<string> = this.store$.pipe(select(auth.getServerError))
 
-  constructor() { }
+  constructor(private store$: Store) { }
 
   ngOnInit(): void {
   }
 
-  onLogin(value: any) {
-    console.log(value)
-    this.serverError += '1'
+  onLogin(loginPayload: {login: string, password: string}) {
+    console.log(loginPayload)
+    this.store$.dispatch(login(loginPayload))
   }
 
 }
