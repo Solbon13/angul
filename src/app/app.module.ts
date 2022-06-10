@@ -11,13 +11,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebsiteModule } from './routing/website/website.module';
-import { StoreModule } from '@ngrx/store';
+import { Store, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { AuthStoreModule } from './store/auth-store/auth-store.module';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { initAuth } from './store/auth-store/store/auth.actions';
 
 registerLocaleData(ru);
 
@@ -48,4 +49,8 @@ registerLocaleData(ru);
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(store$: Store) {
+    store$.dispatch(initAuth())
+  }
+}
