@@ -8,7 +8,7 @@ import { ru_RU } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import ru from '@angular/common/locales/ru';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WebsiteModule } from './routing/website/website.module';
 import { StoreModule } from '@ngrx/store';
@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { AuthStoreModule } from './store/auth-store/auth-store.module';
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 registerLocaleData(ru);
 
@@ -37,7 +38,14 @@ registerLocaleData(ru);
     StoreRouterConnectingModule.forRoot(),
     AuthStoreModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: ru_RU }],
+  providers: [
+    { provide: NZ_I18N, useValue: ru_RU },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

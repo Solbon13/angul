@@ -4,7 +4,8 @@ import { login, loginFailed, loginSuccess } from "./auth.actions";
 export const AUTH_FEATURE_NAME = 'auth'
 
 export interface AuthData {
-    accessToken: string;
+    token: string;
+    exp: number;
 }
 export interface AuthState {
     loading: boolean;
@@ -25,7 +26,11 @@ export const authReducer = createReducer(
         ...state,
         loading: true,
     })),
-    on(loginSuccess, (state, authData: AuthData) =>({
+    on(loginSuccess, (state, {
+        type,
+        ...authData
+    }: {type: string} & AuthData
+        ) =>({
         ...state,
         authData,
         loaded: true,

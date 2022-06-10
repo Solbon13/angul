@@ -25,7 +25,7 @@ export const getAuthData = createSelector(
 
 export const getAccessToken = createSelector(
     getAuthData,
-    authData => authData && authData.accessToken
+    authData => authData && authData.token
 )
 
 export const isAuth = createSelector(
