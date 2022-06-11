@@ -11,13 +11,14 @@ export interface AuthState {
     loading: boolean;
     loaded: boolean;
     serverError: string;
-    authData?: AuthData;
+    authData?: AuthData | null;
 }
 
 const initialState: AuthState = {
     loading: false,
     loaded: true,
-    serverError: ''
+    serverError: '',
+    authData: null
 }
 
 export const authReducer = createReducer(
@@ -26,26 +27,21 @@ export const authReducer = createReducer(
         ...state,
         loading: true,
     })),
-    on(loginSuccess, (state, {
-        type,
-        ...authData
-    }: {type: string} & AuthData
-        ) =>({
+    on(loginSuccess, (state, authData) => ({
         ...state,
         authData,
         loaded: true,
         loading: false,
         serverError: ''
     })),
-    on(loginFailed, (state, {serverError}) =>({
+    on(loginFailed, (state, { serverError }) => ({
         ...state,
-        authData: undefined,
+        authData: null,
         loaded: true,
         loading: false,
         serverError
     })),
     on(logoutSuccess, () => ({
         ...initialState,
-        authData: undefined
     }))
-    )
+)

@@ -24,7 +24,7 @@ import { AdminGuard } from './guards/admin.guard';
         loadChildren: () => import('./routing/auth/auth.module')
           .then(module => module.AuthModule),
           canLoad: [GuestGuard],
-          canActivate: [GuestGuard]
+          canActivate: [GuestGuard],
       },
       {
         path: 'site',

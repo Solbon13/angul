@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, map, of, switchMap, tap } from "rxjs";
+import { catchError, fromEvent, map, of, switchMap, tap } from "rxjs";
 import { AuthService } from "../services/auth.service";
-import { initAuth, login, loginFailed, loginSuccess, logoutSuccess } from "./auth.actions";
+import { extractLoginData, initAuth, login, loginFailed, loginSuccess, logoutSuccess } from "./auth.actions";
 import { AuthData } from "./auth.reducer";
 
 @Injectable()
@@ -15,7 +15,7 @@ export class AuthEffects {
                 login: action.login,
                 password: action.password
             }).pipe(
-                map(loginSuccessData => loginSuccess(loginSuccessData)),
+                map(authData => loginSuccess(authData)),
                 catchError(error => of(loginFailed({ serverError: error.message })))
             )
         )
@@ -23,14 +23,13 @@ export class AuthEffects {
 
     saveAuthDataToLocalStorage$ = createEffect(() => this.actions$.pipe(
         ofType(loginSuccess),
-        tap(loginSuccessData => {
-            const { type, ...authData } = loginSuccessData
+        tap(authData => {
             localStorage.setItem('authData', JSON.stringify(authData))
         })
     ), { dispatch: false })
 
     extractLoginData$ = createEffect(() => this.actions$.pipe(
-        ofType(initAuth),
+        ofType(initAuth, extractLoginData),
         map(() => {
             const authDataString = localStorage.getItem('authData')
             if (!authDataString) {
@@ -42,6 +41,12 @@ export class AuthEffects {
             }
             return loginSuccess(authData)
         })
+    ))
+
+    listenStorageEffect$ = createEffect(() => this.actions$.pipe(
+        ofType(initAuth),
+        switchMap(() => fromEvent(window, 'storage')),
+        map(() => extractLoginData())
     ))
 
     constructor(

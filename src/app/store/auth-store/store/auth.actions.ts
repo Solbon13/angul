@@ -23,3 +23,7 @@ export const initAuth = createAction(
 export const logoutSuccess = createAction(
     '[Auth] logout success',
 )
+
+export const extractLoginData = createAction(
+    '[Auth] extract login data',
+)

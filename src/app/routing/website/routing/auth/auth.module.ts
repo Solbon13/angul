@@ -16,7 +16,6 @@ import { AuthLoginBlockModule } from 'src/app/view/auth-login-block/auth-login-b
     RouterModule.forChild([
       {
         path: '',
-        pathMatch: 'full',
         redirectTo: 'login'
       },
       {
