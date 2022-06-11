@@ -1,9 +1,12 @@
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, fromEvent, map, of, switchMap, tap } from "rxjs";
+import { select, Store } from "@ngrx/store";
+import { catchError, distinctUntilChanged, fromEvent, map, of, skip, switchMap, tap } from "rxjs";
 import { AuthService } from "../services/auth.service";
 import { extractLoginData, initAuth, login, loginFailed, loginSuccess, logoutSuccess } from "./auth.actions";
 import { AuthData } from "./auth.reducer";
+import { getAuthData } from "./auth.selectors";
 
 @Injectable()
 export class AuthEffects {
@@ -49,9 +52,23 @@ export class AuthEffects {
         map(() => extractLoginData())
     ))
 
+    listenAuthorizeEffect$ = createEffect(() => this.actions$.pipe(
+        ofType(initAuth),
+        switchMap(() => this.authServices.isAuth$),
+        distinctUntilChanged(),//сравнивает предыдущее и текущее состояние. Надо почитать подробнее
+        skip(1),
+        tap(isAuthorized => {
+            this.router.navigateByUrl(
+                isAuthorized ? '/site' : '/auth'
+            )
+        })
+    ), { dispatch: false })
+
     constructor(
         private actions$: Actions,
-        private authServices: AuthService
+        private authServices: AuthService,
+        private store$: Store,
+        private router: Router
     ) { }
 
 }
