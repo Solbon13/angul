@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store';
+import { GuestGuard } from './guards/guest.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 
 @NgModule({
@@ -20,12 +22,16 @@ import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store';
       {
         path: 'auth',
         loadChildren: () => import('./routing/auth/auth.module')
-          .then(module => module.AuthModule)
+          .then(module => module.AuthModule),
+          canLoad: [GuestGuard],
+          canActivate: [GuestGuard]
       },
       {
         path: 'site',
         loadChildren: () => import('./routing/site/site.module')
-          .then(module => module.SiteModule)
+          .then(module => module.SiteModule),
+          canLoad: [AdminGuard],
+          canActivate: [AdminGuard],
       },
       {
         path: 'not-found',
@@ -34,6 +40,7 @@ import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store';
       },
       { path: '**', redirectTo: 'not-found' },
     ]),
-  ]
+  ],
+  providers: [GuestGuard, AdminGuard]
 })
 export class WebsiteModule { }
