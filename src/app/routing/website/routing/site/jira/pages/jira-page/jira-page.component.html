@@ -1,1 +1,30 @@
-<p>jira-page works!</p>
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzRequired>Логин в домен</nz-form-label>
+    <nz-form-control [nzSpan]="20" nzHasFeedback nzErrorTip="Введите имя пользователя!">
+      <input nz-input formControlName="login" placeholder="Логин в домен" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzRequired>Пароль</nz-form-label>
+    <nz-form-control [nzSpan]="20" nzHasFeedback nzErrorTip="Введите пароль!">
+      <input nz-input type="password" formControlName="password" placeholder="Пароль в домен" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzRequired>Номера инцидентов</nz-form-label>
+    <nz-form-control [nzSpan]="20" nzErrorTip="Введите номера инцидентов!">
+      <textarea formControlName="JiraNumbers" nz-input rows="2" placeholder="Номера инцидентов"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzOffset]="5" [nzSpan]="19">
+      <button nz-button nzType="primary" [disabled]="!validateForm.valid">Сформировать</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<app-table
+[listOfColumns] = "listOfColumns"
+[listOfData] = "(listOfData$ | async)!"
+></app-table>

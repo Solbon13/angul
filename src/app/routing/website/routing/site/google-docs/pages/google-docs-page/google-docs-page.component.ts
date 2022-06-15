@@ -9,6 +9,10 @@ export class GoogleDocsPageComponent implements OnInit {
 
   constructor() { }
 
+  onClick() {
+    console.log('12')
+  }
+
   ngOnInit(): void {
   }
 

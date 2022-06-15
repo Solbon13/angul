@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { JiraPageComponent } from './pages/jira-page/jira-page.component';
 import { RouterModule } from '@angular/router';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { TableModule } from 'src/app/view/site/jira/ui/table/table.module';
 
 
 @NgModule({
@@ -11,12 +16,17 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
+    NzFormModule,
+    NzInputModule,
+    NzButtonModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',
         component: JiraPageComponent
       }
-    ])
+    ]),
+    TableModule
   ]
 })
 export class JiraModule { }

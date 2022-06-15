@@ -18,8 +18,9 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
   ],
   imports: [
     CommonModule,
-    NzFormModule,
     ReactiveFormsModule,
+    
+    NzFormModule,
     NzTypographyModule,
     NzButtonModule,
     NzInputModule,

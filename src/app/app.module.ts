@@ -19,12 +19,13 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { AuthStoreModule } from './store/auth-store/auth-store.module';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { initAuth } from './store/auth-store/store/auth.actions';
+import { JiraStoreModule } from './store/jira-store/jira-store.module';
 
 registerLocaleData(ru);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,8 @@ registerLocaleData(ru);
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
-    AuthStoreModule
+    AuthStoreModule,
+    JiraStoreModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: ru_RU },

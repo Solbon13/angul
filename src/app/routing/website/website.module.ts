@@ -5,12 +5,22 @@ import { StoreModule } from '@ngrx/store';
 import { DEFAULT_ROUTER_FEATURENAME, routerReducer } from '@ngrx/router-store';
 import { GuestGuard } from './guards/guest.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { SiteComponent } from './pages/site/site.component';
 
+
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { SiderBlockModule } from 'src/app/view/sider-block/sider-block.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SiteComponent
+  ],
   imports: [
     CommonModule,
+    SiderBlockModule,
+    
+    NzLayoutModule,
+
     StoreModule.forFeature(DEFAULT_ROUTER_FEATURENAME, routerReducer),
     RouterModule.forChild([
       {
@@ -28,6 +38,7 @@ import { AdminGuard } from './guards/admin.guard';
       },
       {
         path: 'site',
+        component: SiteComponent,
         loadChildren: () => import('./routing/site/site.module')
           .then(module => module.SiteModule),
           canLoad: [AdminGuard],

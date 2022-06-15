@@ -1,0 +1,15 @@
+<div class="logo"></div>
+<ul nz-menu nzTheme="dark" nzMode="inline">
+    <li nz-submenu *ngFor="let item of menuData" [nzTitle]="item.title" [nzIcon]="item.icon">
+        <ul>
+            <li *ngFor="let itemChildren of item.children" nz-menu-item>
+                <i nz-icon nzType={{itemChildren.icon}}></i>
+                <span>
+                    <a [routerLink]="itemChildren.href">
+                        {{itemChildren.title}}
+                    </a>
+                </span>
+            </li>
+        </ul>
+    </li>
+</ul>
