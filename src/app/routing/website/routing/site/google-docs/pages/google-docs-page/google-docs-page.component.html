@@ -1,2 +1,7 @@
 <p>google-docs-page works!</p>
 <button nz-button nzType="primary" (click)="onClick()">Считать Google Docs</button>
+
+<app-table-google-docs
+[listOfColumns] = "listOfColumns"
+[listOfData] = "(listOfData$ | async)!"
+></app-table-google-docs>

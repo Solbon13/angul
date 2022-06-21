@@ -2,19 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NzTableModule } from 'ng-zorro-antd/table';
-import { TableComponent } from './table.component';
+import { TableJiraComponent } from './table-jira.component';
 
 
 @NgModule({
   declarations: [
-    TableComponent
+    TableJiraComponent
   ],
   imports: [
     CommonModule,
     NzTableModule,
   ],
   exports: [
-    TableComponent
+    TableJiraComponent
   ]
 })
-export class TableModule { }
+export class TableJiraModule { }

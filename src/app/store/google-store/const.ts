@@ -1,13 +1,19 @@
-export const GOOGLE_FEATURE_NAME = 'jira'
+export const GOOGLE_FEATURE_NAME = 'google'
 
 export interface GoogleData {
-    key: number,
-    number: string,
-    priority: string,
-    status: string,
-    time: string,
-    title: string,
-    user: string
+    '7': string;
+    '8': string;
+    'Дата Завершено': string;
+    'Дата Создано': string;
+    'Завершено': string;
+    'Завершено СЕГОДНЯ': string;
+    'Исполнитель': string;
+    'Классификация': string;
+    'Комментарий': string;
+    'Приоритет': string;
+    'Создано': string;
+    'Создано СЕГОДНЯ': string;
+    '№': string;
 }
 
 export interface GoogleState {

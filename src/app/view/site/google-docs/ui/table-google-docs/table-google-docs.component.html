@@ -1,0 +1,20 @@
+<nz-table #filterTable [nzData]="listOfData" nzTableLayout="fixed">
+    <thead>
+        <tr>
+            <th *ngFor="let column of listOfColumns">
+                {{ column.name }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of filterTable.data">
+            <td>{{ data['№'] }}</td>
+            <td>{{ data['Дата Создано'] }}</td>
+            <td>{{ data['Классификация'] }}</td>
+            <td>{{ data['Приоритет'] }}</td>
+            <td>{{ data['Исполнитель'] }}</td>
+            <td>{{ data['Дата Завершено'] }}</td>
+            <td>{{ data['Комментарий'] }}</td>
+        </tr>
+    </tbody>
+</nz-table>

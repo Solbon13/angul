@@ -20,6 +20,7 @@ import { AuthStoreModule } from './store/auth-store/auth-store.module';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { initAuth } from './store/auth-store/store/auth.actions';
 import { JiraStoreModule } from './store/jira-store/jira-store.module';
+import { GoogleStoreModule } from './store/google-store/google-store.module';
 
 registerLocaleData(ru);
 
@@ -39,7 +40,8 @@ registerLocaleData(ru);
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
     AuthStoreModule,
-    JiraStoreModule
+    JiraStoreModule,
+    GoogleStoreModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: ru_RU },

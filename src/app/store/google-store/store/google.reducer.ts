@@ -9,7 +9,7 @@ const initialState: GoogleState = {
     googleData: []
 }
 
-export const JiraReducer = createReducer(
+export const GoogleReducer = createReducer(
     initialState,
     on(loadGoogle, state => ({
         ...state,

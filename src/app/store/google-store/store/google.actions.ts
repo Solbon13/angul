@@ -2,8 +2,7 @@ import { createAction, props } from "@ngrx/store";
 import { GoogleData, GoogleRequest } from "../const";
 
 export const loadGoogle = createAction(
-    '[Google] load google',
-    props<GoogleRequest>()
+    '[Google] load google'
 )
 
 export const loadGoogleSuccess = createAction(

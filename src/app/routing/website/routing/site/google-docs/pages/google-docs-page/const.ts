@@ -1,6 +1,5 @@
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/table";
 import { GoogleData } from "src/app/store/google-store/const";
-import { JiraData } from "src/app/store/jira-store/const";
 
 // export interface DataItem {
 //     key:number;
@@ -12,17 +11,7 @@ import { JiraData } from "src/app/store/jira-store/const";
 //     priority: string;
 // }
 
-export interface ColumnItem {
-    name: string;
-    sortOrder: NzTableSortOrder | null;
-    sortFn: NzTableSortFn<JiraData> | null;
-    listOfFilter: NzTableFilterList;
-    filterFn: NzTableFilterFn<JiraData> | null;
-    filterMultiple: boolean;
-    sortDirections: NzTableSortOrder[];
-}
-
-export interface ColumnItemGD {
+export interface ColumnItemGoogle {
     name: string;
     sortOrder: NzTableSortOrder | null;
     sortFn: NzTableSortFn<GoogleData> | null;

@@ -4,6 +4,7 @@ import { GoogleDocsPageComponent } from './pages/google-docs-page/google-docs-pa
 import { RouterModule } from '@angular/router';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { ViewGoogleDocsModule } from 'src/app/view/site/google-docs/view-google-docs.module';
 
 
 
@@ -21,7 +22,8 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
         pathMatch: 'full',
         component: GoogleDocsPageComponent
       }
-    ])
+    ]),
+    ViewGoogleDocsModule
   ]
 })
 export class GoogleDocsModule { }

@@ -75,17 +75,7 @@ export class JiraPageComponent implements OnInit {
     }
   ];
 
-  listOfData: JiraData[] = [
-    {
-      key: 1,
-      number: 'John Brown',
-      title: '32',
-      user: 'New York No. 1 Lake Park',
-      status: 'New York No. 1 Lake Park',
-      time: 'New York No. 1 Lake Park',
-      priority: 'New York No. 1 Lake Park',
-    },
-  ];
+  listOfData: JiraData[] = [];
   
   listOfData$ = this.store$.pipe(select(getJiraData))
 
@@ -105,11 +95,6 @@ export class JiraPageComponent implements OnInit {
       }
       values['JiraNumbers'] = tempArr
       this.store$.dispatch(loadJira(values))
-
-
-      console.log({
-        "addressJira": "{\"JiraNumbers\":[\"PFRPUV-51132\"],\"login\":\"gomboev.solbon\",\"password\":\"OTR2jira!\"}"
-      })
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {

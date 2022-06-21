@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { TableModule } from 'src/app/view/site/jira/ui/table/table.module';
+import { TableJiraModule } from 'src/app/view/site/jira/ui/table/table-jira.module';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import { TableModule } from 'src/app/view/site/jira/ui/table/table.module';
         component: JiraPageComponent
       }
     ]),
-    TableModule
+    TableJiraModule
   ]
 })
 export class JiraModule { }
