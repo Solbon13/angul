@@ -49,6 +49,11 @@ export class SiderMenuComponent implements OnInit {
           icon: 'appstore-o',
           title: 'google-docs',
           href: '/site/google-docs'
+        },
+        {
+          icon: 'appstore-o',
+          title: 'google-docs-filter-astp',
+          href: '/site/google-docs/filter-astp'
         }
       ]
     },

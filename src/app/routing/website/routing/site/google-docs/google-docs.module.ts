@@ -5,12 +5,14 @@ import { RouterModule } from '@angular/router';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { ViewGoogleDocsModule } from 'src/app/view/site/google-docs/view-google-docs.module';
+import { GoogleDocsFilterAstpPageComponent } from './pages/google-docs-filter-astp-page/google-docs-filter-astp-page.component';
 
 
 
 @NgModule({
   declarations: [
-    GoogleDocsPageComponent
+    GoogleDocsPageComponent,
+    GoogleDocsFilterAstpPageComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,10 @@ import { ViewGoogleDocsModule } from 'src/app/view/site/google-docs/view-google-
         path: '',
         pathMatch: 'full',
         component: GoogleDocsPageComponent
+      },
+      {
+        path: 'filter-astp',
+        component: GoogleDocsFilterAstpPageComponent
       }
     ]),
     ViewGoogleDocsModule

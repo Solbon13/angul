@@ -27,7 +27,7 @@ import { RouterModule } from '@angular/router';
         path: 'google-docs',
         loadChildren: () => import('./google-docs/google-docs.module')
         .then(module => module.GoogleDocsModule)
-      },
+      }
     ])
   ]
 })
