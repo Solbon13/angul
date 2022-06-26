@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { ANDB_REG_FEATURE_NAME } from '../const';
+import { ANDB_PTK_FEATURE_NAME } from '../const';
 import { EffectsModule } from '@ngrx/effects';
-import { RegAndbReducer } from './store/reg-andb.reducer';
-import { RegAndbEffects } from './store/reg-andb.effects';
+import { PtkAndbReducer } from './store/ptk-andb.reducer';
+import { PtkAndbEffects } from './store/ptk-andb.effects';
 
 
 
@@ -13,12 +13,12 @@ import { RegAndbEffects } from './store/reg-andb.effects';
   imports: [
     CommonModule,
     StoreModule.forFeature(
-      ANDB_REG_FEATURE_NAME, 
-      RegAndbReducer
+      ANDB_PTK_FEATURE_NAME, 
+      PtkAndbReducer
       ),
     EffectsModule.forFeature([
-      RegAndbEffects
+      PtkAndbEffects
     ])
 ]
 })
-export class RegAndbModule { }
+export class PtkAndbModule { }

@@ -20,7 +20,7 @@ export interface andbAgregatorData {
 export interface andbAgregatorHistoryData {
 }
 
-export interface andbStatementVerdictData {
+export interface andbStatementLinkData {
 }
 
 export interface AndbFullState {
@@ -32,6 +32,41 @@ export interface AndbFullState {
     andbAgregatorFullData: andbAgregatorData[];
     andbAgregatorFullHistoryData: andbAgregatorHistoryData[];
     andbPTKFullData: andbPTKData[];
-    andbStatementVerdictFullData: andbStatementVerdictData[];
+    andbStatementLinkFullData: andbStatementLinkData[];
 }
 
+export interface AgregatorAndbState {
+    loadingAgregatorAndb: boolean;
+    loadedAgregatorAndb: boolean;
+    serverErrorAgregatorAndb: string;
+    andbAgregatorData: andbAgregatorData[];
+    andbAgregatorHistoryData: andbAgregatorHistoryData[];
+}
+
+export interface AssignAndbState {
+    loadingAssignAndb: boolean;
+    loadedAssignAndb: boolean;
+    serverErrorAssignAndb: string;
+    andbAssignData: andbAssignData[];
+}
+
+export interface PtkAndbState {
+    loadingPtkAndb: boolean;
+    loadedPtkAndb: boolean;
+    serverErrorPtkAndb: string;
+    andbPTKData: andbPTKData[];
+}
+
+export interface RegAndbState {
+    loadingRegAndb: boolean;
+    loadedRegAndb: boolean;
+    serverErrorRegAndb: string;
+    andbRegData: andbRegData[];
+}
+
+export interface StatementLinkAndbState {
+    loadingStatementLinkAndb: boolean;
+    loadedStatementLinkAndb: boolean;
+    serverErrorStatementLinkAndb: string;
+    andbStatementLinkData: andbStatementLinkData[];
+}

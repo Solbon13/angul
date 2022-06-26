@@ -11,7 +11,7 @@ const initialState: AndbFullState = {
     andbAssignFullData: [],
     andbPTKFullData: [],
     andbRegFullData: [],
-    andbStatementVerdictFullData: []
+    andbStatementLinkFullData: []
 }
 
 export const AndbFullReducer = createReducer(
