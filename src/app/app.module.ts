@@ -21,6 +21,7 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { initAuth } from './store/auth-store/store/auth.actions';
 import { JiraStoreModule } from './store/jira-store/jira-store.module';
 import { GoogleStoreModule } from './store/google-store/google-store.module';
+import { AndbStoreModule } from './store/andb-store/andb-store.module';
 
 registerLocaleData(ru);
 
@@ -41,7 +42,8 @@ registerLocaleData(ru);
     StoreRouterConnectingModule.forRoot(),
     AuthStoreModule,
     JiraStoreModule,
-    GoogleStoreModule
+    GoogleStoreModule,
+    AndbStoreModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: ru_RU },

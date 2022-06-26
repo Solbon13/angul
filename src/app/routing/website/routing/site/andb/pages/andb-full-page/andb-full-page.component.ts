@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-andb-full-page',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AndbFullPageComponent implements OnInit {
 
-  constructor() { }
+  validateForm!: FormGroup
+
+  constructor(
+    private fb: FormBuilder
+    ) { }
 
   ngOnInit(): void {
+    this.validateForm = this.fb.group({
+      guidStatement: [''],
+      guidVerdict: [''],
+      regNumber: [''],
+      extractNumber: ['']
+    });
+  }
+
+  submitForm() {
+    console.log('submit', this.validateForm.value);
   }
 
 }

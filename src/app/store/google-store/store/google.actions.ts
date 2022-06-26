@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { GoogleData, GoogleRequest } from "../const";
+import { GoogleData } from "../const";
 
 export const loadGoogle = createAction(
     '[Google] load google'

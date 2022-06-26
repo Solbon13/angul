@@ -1,26 +1,78 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">Comment</nz-form-label>
+        <nz-form-control [nzSpan]="20" nzErrorTip="Please write something here!">
+            <textarea formControlName="guidStatement" nz-input rows="2" placeholder="write any thing"></textarea>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">Comment</nz-form-label>
+        <nz-form-control [nzSpan]="20" nzErrorTip="Please write something here!">
+            <textarea formControlName="guidVerdict" nz-input rows="2" placeholder="write any thing"></textarea>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">Comment</nz-form-label>
+        <nz-form-control [nzSpan]="20" nzErrorTip="Please write something here!">
+            <textarea formControlName="regNumber" nz-input rows="2" placeholder="write any thing"></textarea>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="4">Comment</nz-form-label>
+        <nz-form-control [nzSpan]="20" nzErrorTip="Please write something here!">
+            <textarea formControlName="extractNumber" nz-input rows="2" placeholder="write any thing"></textarea>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control [nzOffset]="7" [nzSpan]="12">
+            <button nz-button nzType="primary">Submit</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>
+
 <nz-tabset>
     <nz-tab nzTitle="ПУВ-1">
         <nz-tabset>
             <nz-tab nzTitle="Assign">
-                <app-table-assign></app-table-assign>
+                <app-block-table-assign></app-block-table-assign>
             </nz-tab>
-            <nz-tab nzTitle="Reg">Content of Tab Pane 2</nz-tab>
-            <nz-tab nzTitle="ПТК НВП">Content of Tab Pane 3</nz-tab>
-            <nz-tab nzTitle="Агредатор">Content of Tab Pane 3</nz-tab>
-            <nz-tab nzTitle="Агредатор Уведомлений">Content of Tab Pane 3</nz-tab>
-            <nz-tab nzTitle="Данные по заявлению и решению">Content of Tab Pane 3</nz-tab>
+            <nz-tab nzTitle="Reg">
+                <app-block-table-reg></app-block-table-reg>
+            </nz-tab>
+            <nz-tab nzTitle="ПТК НВП">
+                <app-block-table-ptk></app-block-table-ptk>
+            </nz-tab>
+            <nz-tab nzTitle="Агредатор">
+                <app-block-table-agregator></app-block-table-agregator>
+            </nz-tab>
+            <nz-tab nzTitle="Агредатор Уведомлений">
+                <app-block-table-agregator-history></app-block-table-agregator-history>
+            </nz-tab>
+            <nz-tab nzTitle="Данные по заявлению и решению">
+                <app-block-table-statement-verdict></app-block-table-statement-verdict>
+            </nz-tab>
         </nz-tabset>
     </nz-tab>
     <nz-tab nzTitle="ПУВ-2">
         <nz-tabset>
             <nz-tab nzTitle="Assign">
-                <app-table-assign></app-table-assign>
+                <app-block-table-assign></app-block-table-assign>
             </nz-tab>
-            <nz-tab nzTitle="Reg">Content of Tab Pane 2</nz-tab>
-            <nz-tab nzTitle="ПТК НВП">Content of Tab Pane 3</nz-tab>
-            <nz-tab nzTitle="Агредатор">Content of Tab Pane 3</nz-tab>
-            <nz-tab nzTitle="Агредатор Уведомлений">Content of Tab Pane 3</nz-tab>
-            <nz-tab nzTitle="Данные по заявлению и решению">Content of Tab Pane 3</nz-tab>
+            <nz-tab nzTitle="Reg">
+                <app-block-table-reg></app-block-table-reg>
+            </nz-tab>
+            <nz-tab nzTitle="ПТК НВП">
+                <app-block-table-ptk></app-block-table-ptk>
+            </nz-tab>
+            <nz-tab nzTitle="Агредатор">
+                <app-block-table-agregator></app-block-table-agregator>
+            </nz-tab>
+            <nz-tab nzTitle="Агредатор Уведомлений">
+                <app-block-table-agregator-history></app-block-table-agregator-history>
+            </nz-tab>
+            <nz-tab nzTitle="Данные по заявлению и решению">
+                <app-block-table-statement-verdict></app-block-table-statement-verdict>
+            </nz-tab>
         </nz-tabset>
     </nz-tab>
 </nz-tabset>

@@ -22,8 +22,3 @@ export interface GoogleState {
     serverError: string;
     googleData: GoogleData[];
 }
-
-export interface GoogleRequest {
-    login: string,
-    password: string,
-}
